@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Sergey-Grigoryev/2NiteEvents/issues"
   },
-  "homepage": "https://github.com/Sergey-Grigoryev/2NiteEvents#readme"
+  "homepage": "https://github.com/Sergey-Grigoryev/2NiteEvents#readme",
+  "dependencies": {
+    "@devexpress/dx-react-core": "^2.7.6",
+    "@devexpress/dx-react-grid": "^2.7.6",
+    "@devexpress/dx-react-grid-bootstrap4": "^2.7.6"
+  }
 }
