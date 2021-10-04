@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
-const clientAccountsSchema = new Schema ({
+const clientAccountSchema = new Schema ({
     id: {
         type: String,
         required: true,
@@ -20,6 +20,6 @@ userSchema.methods.isCorrectPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
   };
 
-const clientAccount = mongoose.model('ClientAccounts', clientAccountsSchema);
+const clientAccount = mongoose.model('ClientAccount', clientAccountSchema);
 
 module.exports = clientAccount;
