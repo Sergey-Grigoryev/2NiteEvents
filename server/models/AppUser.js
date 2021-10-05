@@ -13,6 +13,11 @@ const appUserSchema = new Schema({
     required: true,
     unique: true,
   },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5,
+  },
   eventId: [
     {
       type: Schema.Types.ObjectId,
