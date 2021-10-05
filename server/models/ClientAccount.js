@@ -8,15 +8,29 @@ const clientAccountSchema = new Schema ({
         type: String,
         required: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
+    businessAddress: {
+      type: String,
+      required: true,
+    },
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     password: {
         type: String,
         required: true,
         minlength: 5
       },
+
 });
 
 // compare the incoming password with the hashed password
-userSchema.methods.isCorrectPassword = async function(password) {
+clientAccountSchema.methods.isCorrectPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
   };
 
