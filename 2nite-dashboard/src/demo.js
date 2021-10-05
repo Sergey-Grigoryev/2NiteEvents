@@ -21,9 +21,9 @@ import {
   Resources,
   DragDropProvider,
 } from "@devexpress/dx-react-scheduler-material-ui";
-import WbSunny from "@material-ui/icons/WbSunny";
-import FilterDrama from "@material-ui/icons/FilterDrama";
-import Opacity from "@material-ui/icons/Opacity";
+// import WbSunny from "@material-ui/icons/WbSunny";
+// import FilterDrama from "@material-ui/icons/FilterDrama";
+// import Opacity from "@material-ui/icons/Opacity";
 import ColorLens from "@material-ui/icons/ColorLens";
 import { withStyles } from "@material-ui/core/styles";
 import { owners } from "./demo-data/tasks";
@@ -160,24 +160,24 @@ const styles = (theme) => ({
     padding: "0.5em",
     textAlign: "center",
   },
-  sun: {
-    color: "#FFEE58",
-  },
-  cloud: {
-    color: "#90A4AE",
-  },
-  rain: {
-    color: "#4FC3F7",
-  },
-  sunBack: {
-    backgroundColor: "#FFFDE7",
-  },
-  cloudBack: {
-    backgroundColor: "#ECEFF1",
-  },
-  rainBack: {
-    backgroundColor: "#E1F5FE",
-  },
+  // sun: {
+  //   color: "#FFEE58",
+  // },
+  // cloud: {
+  //   color: "#90A4AE",
+  // },
+  // rain: {
+  //   color: "#4FC3F7",
+  // },
+  // sunBack: {
+  //   backgroundColor: "#FFFDE7",
+  // },
+  // cloudBack: {
+  //   backgroundColor: "#ECEFF1",
+  // },
+  // rainBack: {
+  //   backgroundColor: "#E1F5FE",
+  // },
   opacity: {
     opacity: "0.5",
   },
@@ -242,18 +242,18 @@ const styles = (theme) => ({
   },
 });
 
-const WeatherIcon = ({ classes, id }) => {
-  switch (id) {
-    case 0:
-      return <Opacity className={classes.rain} fontSize="large" />;
-    case 1:
-      return <WbSunny className={classes.sun} fontSize="large" />;
-    case 2:
-      return <FilterDrama className={classes.cloud} fontSize="large" />;
-    default:
-      return null;
-  }
-};
+// const WeatherIcon = ({ classes, id }) => {
+//   switch (id) {
+//     case 0:
+//       return <Opacity className={classes.rain} fontSize="large" />;
+//     case 1:
+//       return <WbSunny className={classes.sun} fontSize="large" />;
+//     case 2:
+//       return <FilterDrama className={classes.cloud} fontSize="large" />;
+//     default:
+//       return null;
+//   }
+// };
 
 // #FOLD_BLOCK
 const CellBase = React.memo(
@@ -280,9 +280,9 @@ const CellBase = React.memo(
           [classes.opacity]: otherMonth,
         })}
       >
-        <div className={classes.content}>
+        {/* <div className={classes.content}>
           <WeatherIcon classes={classes} id={iconId} />
-        </div>
+        </div> */}
         <div className={classes.text}>
           {formatDate(startDate, formatOptions)}
         </div>
@@ -314,7 +314,7 @@ const FlexibleSpace = withStyles(styles, { name: "ToolbarRoot" })(
       <div className={classes.flexContainer}>
         <ColorLens fontSize="large" htmlColor="#FF7043" />
         <Typography variant="h5" style={{ marginLeft: "10px" }}>
-          Art School
+          Your Events
         </Typography>
       </div>
     </Toolbar.FlexibleSpace>
