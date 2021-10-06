@@ -3,9 +3,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const businessSchema = new Schema({
-  id: {
-    type: Number,
-  },
   name: {
     type: String,
     required: true,
@@ -22,4 +19,4 @@ const businessSchema = new Schema({
 
 const Business = mongoose.model("Bussinesses", businessSchema);
 
-mdule.exports = Business;
+module.exports = Business;

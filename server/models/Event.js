@@ -3,9 +3,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const eventSchema = new Schema({
-  id: {
-    type: Number,
-  },
   title: {
     type: String,
     required: true,

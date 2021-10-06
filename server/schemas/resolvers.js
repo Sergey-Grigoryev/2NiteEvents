@@ -1,20 +1,21 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { ClientAccount, Event, Business } = require('../models');
-const { signToken } = require('../../2nite-dashboard/utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const { AuthenticationError } = require("apollo-server-express");
+const { ClientAccount, Event, Business } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.ClientAccount) {
-        const user = await ClientAccount.findById(context.ClientAccount._id).populate({
-          populate: 'BusinessId'
+        const user = await ClientAccount.findById(
+          context.ClientAccount._id
+        ).populate({
+          populate: "BusinessId",
         });
 
         return user;
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError("Not logged in");
     },
   },
   Mutation: {
@@ -29,46 +30,53 @@ const resolvers = {
       if (context.Event) {
         const event = new Event({ Events });
 
-        await Event.findByIdAndUpdate(context.Event._id, { $push: { Events: Event } });
+        await Event.findByIdAndUpdate(context.Event._id, {
+          $push: { Events: Event },
+        });
 
         return event;
       }
 
-      throw new AuthenticationError('Not able to Add Event');
+      throw new AuthenticationError("Not able to Add Event");
     },
     updateClientAccount: async (parent, args, context) => {
       if (context.ClientAccount) {
-        return await ClientAccount.findByIdAndUpdate(context.ClientAccount._id, args, { new: true });
+        return await ClientAccount.findByIdAndUpdate(
+          context.ClientAccount._id,
+          args,
+          { new: true }
+        );
       }
 
-      throw new AuthenticationError('Failed to Update Account');
+      throw new AuthenticationError("Failed to Update Account");
     },
     updateEvent: async (parent, args, context) => {
-        if (context.Event) {
-            return await Event.findByIdAndUpdate(context.Event._id, args, { new: true });
-          }
-    
-          throw new AuthenticationError('Failed to Update Event');
+      if (context.Event) {
+        return await Event.findByIdAndUpdate(context.Event._id, args, {
+          new: true,
+        });
+      }
 
+      throw new AuthenticationError("Failed to Update Event");
     },
     login: async (parent, { username, password }) => {
       const user = await ClientAccount.findOne({ username });
 
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(user);
 
       return { token, user };
-    }
-  }
+    },
+  },
 };
 
 module.exports = resolvers;

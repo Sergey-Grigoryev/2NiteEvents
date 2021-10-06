@@ -3,11 +3,6 @@ const mongoose = require("mongoose");
 const { Schema, ObjectId } = mongoose;
 
 const appUserSchema = new Schema({
-  id: {
-    type: String,
-    required: true,
-    trim: true,
-  },
   email: {
     type: String,
     required: true,
@@ -25,10 +20,10 @@ const appUserSchema = new Schema({
     },
   ],
   rating: {
-    type: Integer,
+    type: Number,
   },
   friends: {
-    type: Integer,
+    type: Number,
   },
 });
 
