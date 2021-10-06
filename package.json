@@ -23,5 +23,8 @@
   "homepage": "https://github.com/Sergey-Grigoryev/2NiteEvents#readme",
   "devDependencies": {
     "concurrently": "^6.3.0"
+  },
+  "dependencies": {
+    "if-env": "^1.0.4"
   }
 }

@@ -107,8 +107,8 @@ export const GET_ONE_EVENT = gql`
 `;
 
 export const GET_ALL_EVENT = gql`
-  mutation getAllEvent() {
-    getAllEvent() {
+  mutation getAllEvent {
+    getAllEvent {
       _id
       title
       startDate
@@ -120,16 +120,16 @@ export const GET_ALL_EVENT = gql`
 `;
 
 export const LOGIN = gql`
-    mutation login($username: String!, password: String!) {
-        login(username: $username, password: $password) {
-            token
-            user {
-                _id
-                name
-                businessId
-                username
-                password
-            }
-        }
+  mutation login($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
+      token
+      user {
+        _id
+        name
+        businessId
+        username
+        password
+      }
     }
+  }
 `;

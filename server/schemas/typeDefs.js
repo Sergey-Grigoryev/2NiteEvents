@@ -72,10 +72,8 @@ const typeDefs = gql`
       username: String
       password: String
     ): ClientAccount
-    getOneEvent(
-      eventId: ID
-    ): Event
-    getAllEvent(): Event
+    getOneEvent(eventId: ID): Event
+    getAllEvent: Event
     login(username: String!, password: String!): Auth
   }
 `;
