@@ -1,5 +1,17 @@
 import logo from "./logo.png";
 import "./App.css";
+import { Auth } from "./utils/auth";
+import { useQuery, useMutation } from ('@apollo/client');
+import { QUERY_ME } from './utils/query';
+import { 
+  ADD_CLIENT_ACCOUNT,
+  ADD_EVENT,
+  UPDATE_EVENT,
+  UPDATE_CLIENT_ACCOUNT,
+  GET_ONE_EVENT,
+  GET_ALL_EVENT,
+  LOGIN
+} from './utils/mutations';
 
 function App() {
   return (

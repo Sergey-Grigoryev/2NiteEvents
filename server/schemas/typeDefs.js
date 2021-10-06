@@ -21,10 +21,10 @@ const typeDefs = gql`
 
   type ClientAccount {
     _id: ID
-    name: String
+    name: String!
     businessId: [Business]
-    username: String
-    password: String
+    username: String!
+    password: String!
   }
 
   # type AppUser {
@@ -47,8 +47,8 @@ const typeDefs = gql`
   type Mutation {
     # addAppUser(email: String!, rating: Int, friends: Int, password: String!): Auth
     addClientAccount(
-      name: String
-      businessId: ID!
+      name: String!
+      businessId: ID
       username: String!
       password: String!
     ): Auth
@@ -67,25 +67,15 @@ const typeDefs = gql`
       numberVisited: Int!
     ): Event
     updateClientAccount(
-      name: String!
-      businessId: ID!
-      username: String!
-      password: String!
+      name: String
+      businessId: ID
+      username: String
+      password: String
     ): ClientAccount
     getOneEvent(
-      title: String!
-      startDate: Date!
-      endDate: Date!
-      avgSpend: Int!
-      numberVisited: Int!
+      eventId: ID
     ): Event
-    getAllEvent(
-      title: String!
-      startDate: Date!
-      endDate: Date!
-      avgSpend: Int!
-      numberVisited: Int!
-    ): Event
+    getAllEvent(): Event
     login(username: String!, password: String!): Auth
   }
 `;

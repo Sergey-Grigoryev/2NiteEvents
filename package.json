@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd server && node server"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "cd server && npm start",
+    "start:dev": "concurrently \"cd server && npm run watch\" \"cd 2nite-dashboard && npm start\"",
+    "install": "cd server && npm i && cd ../2nite-dashboard && npm i",
+    "seed": "cd server && npm run seed",
+    "heroku-postbuild": "cd 2nite-dashboard && npm run build"
   },
   "repository": {
     "type": "git",
@@ -16,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Sergey-Grigoryev/2NiteEvents/issues"
   },
-  "homepage": "https://github.com/Sergey-Grigoryev/2NiteEvents#readme"
+  "homepage": "https://github.com/Sergey-Grigoryev/2NiteEvents#readme",
+  "devDependencies": {
+    "concurrently": "^6.3.0"
+  }
 }
