@@ -31,7 +31,7 @@ import { owners } from "./demo-data/tasks";
 const appointments = [
   {
     id: 0,
-    title: "Watercolor Landscape",
+    title: "Watercolor Landscape123",
     startDate: new Date(2018, 6, 23, 9, 30),
     endDate: new Date(2018, 6, 23, 11, 30),
     ownerId: 1,
@@ -243,16 +243,16 @@ const styles = (theme) => ({
 });
 
 const WeatherIcon = ({ classes, id }) => {
-  switch (id) {
-    case 0:
-      return <Opacity className={classes.rain} fontSize="large" />;
-    case 1:
-      return <WbSunny className={classes.sun} fontSize="large" />;
-    case 2:
-      return <FilterDrama className={classes.cloud} fontSize="large" />;
-    default:
-      return null;
-  }
+  // switch (id) {
+  // case 0:
+  //   return <Opacity className={classes.rain} fontSize="large" />;
+  // case 1:
+  //   return <WbSunny className={classes.sun} fontSize="large" />;
+  // case 2:
+  //   return <FilterDrama className={classes.cloud} fontSize="large" />;
+  // default:
+  return null;
+  // }
 };
 
 // #FOLD_BLOCK

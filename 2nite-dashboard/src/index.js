@@ -5,9 +5,11 @@ import App from "./App";
 import Demo from "./demo";
 import reportWebVitals from "./reportWebVitals";
 
+// let loggedIn = true;
+
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
+    <App />
     <Demo />
   </React.StrictMode>,
   document.getElementById("root")
