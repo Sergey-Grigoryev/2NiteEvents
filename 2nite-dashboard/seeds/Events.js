@@ -654,7 +654,7 @@ const eventsSeed = [
   {
     id: 71,
     title: "Trivia Night",
-    start: 2021-12-01T21:00:00.000Z,
+    start: "2021-12-01T21:00:00.000Z",
     end: "2021-12-01T23:00:00.000Z",
     aveSpend: "$30",
     visitCount: 0,
