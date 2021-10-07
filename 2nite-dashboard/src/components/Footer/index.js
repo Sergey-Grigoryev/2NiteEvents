@@ -1,7 +1,11 @@
 import React from "react";
 
-function Footer() {
-  return <footer>&copy; 2021 2Nite Events</footer>;
-}
+const Footer = () => {
+  return (
+    <footer className="w-100 mt-auto bg-secondary p-4">
+      <div className="container">&copy; 2021 2Nite Events</div>
+    </footer>
+  );
+};
 
 export default Footer;

@@ -1,53 +1,62 @@
-import logo from "./logo.png";
-import "./App.css";
-import React, { useState } from "react";
-import Footer from "./components/Footer";
-import Nav from "./components/Nav";
-import Header from "./components/Header";
-//import Header from "./components/Header";
-// import { Auth } from "./utils/auth";
-// import { useQuery, useMutation } from "@apollo/client";
-// import { QUERY_ME } from "./utils/queries";
-// import {
-//   ADD_CLIENT_ACCOUNT,
-//   ADD_EVENT,
-//   UPDATE_EVENT,
-//   UPDATE_CLIENT_ACCOUNT,
-//   GET_ONE_EVENT,
-//   GET_ALL_EVENT,
-//   LOGIN,
-// } from "./utils/mutations";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>Welcome to 2Nite Events</p>
-//       </header>
-//       <footer>
-//         <Footer></Footer>
-//       </footer>
-//     </div>
-//   );
-// }
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
+
+//Get login token from localstorage
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink), // combine authlink and httplink objects
+  cache: new InMemoryCache(),
+});
+
 function App() {
-  const [currentTab, setCurrentTab] = useState("about");
   return (
-    <div>
-      <div className="mobile-header">
-        <Header currentTab={currentTab} setCurrentTab={setCurrentTab}></Header>
-      </div>
-      <div>
-        <img src={logo} className="App-logo" alt="logo" />
-      </div>
-      {/* <div>
-      <main>{renderTab()}</main>
-    </div> */}
-      <div>
-        <Footer></Footer>
-      </div>
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              {/* <Route exact path="/profile/:username?" component={Profile} /> */}
+              <Route exact path="/dashboard" component={Dashboard} />
+
+              {/* <Route component={NoMatch} /> */}
+            </Switch>
+          </div>
+          <Footer />
+        </div>
+      </Router>
+    </ApolloProvider>
   );
 }
 

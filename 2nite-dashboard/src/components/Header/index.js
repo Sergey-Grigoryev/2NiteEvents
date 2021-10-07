@@ -1,19 +1,38 @@
 import React from "react";
-import Nav from "../../components/Nav";
+import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
 
-function Header(props) {
-  const { currentTab, setCurrentTab } = props;
+const logout = (event) => {
+  event.preventDefault();
+  Auth.logout();
+};
 
+const Header = () => {
   return (
-    <header>
-      <div>
-        <h2>2Nite Events</h2>
-      </div>
-      <div>
-        <Nav currentTab={currentTab} setCurrentTab={setCurrentTab}></Nav>
+    <header className="bg-secondary mb-4 py-2 flex-row align-center">
+      <div className="container flex-row justify-space-between-lg justify-center align-center">
+        <Link to="/">
+          <h1>2Nite Events</h1>
+        </Link>
+
+        <nav className="text-center">
+          {Auth.loggedIn() ? (
+            <>
+              <Link to="/profile">Me</Link>
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Log In</Link>
+              <Link to="/signup">Sign Up</Link>
+            </>
+          )}
+        </nav>
       </div>
     </header>
   );
-}
+};
 
 export default Header;

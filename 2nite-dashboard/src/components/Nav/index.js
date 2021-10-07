@@ -1,22 +1,50 @@
 import React from "react";
+import Auth from "../../utils/auth";
+import { Link } from "react-router-dom";
 
-function Nav(props) {
-  const { currentTab, setCurrentTab } = props;
+function Nav() {
+  function showNavigation() {
+    if (Auth.loggedIn()) {
+      return (
+        <ul className="flex-row">
+          <li className="mx-1">
+            <Link to="/orderHistory">Order History</Link>
+          </li>
+          <li className="mx-1">
+            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <a href="/" onClick={() => Auth.logout()}>
+              Logout
+            </a>
+          </li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul className="flex-row">
+          <li className="mx-1">
+            <Link to="/signup">Signup</Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/login">Login</Link>
+          </li>
+        </ul>
+      );
+    }
+  }
 
   return (
-    <nav>
-      <ul className="flex-row mobile-view">
-        <li className={currentTab === "about" ? "mx-2 navActive" : "mx-2"}>
-          <span onClick={() => setCurrentTab("about")}>Log In</span>
-        </li>
-        <li className={currentTab === "portfolio" ? "mx-2 navActive" : "mx-2"}>
-          <span onClick={() => setCurrentTab("portfolio")}>Sign Up</span>
-        </li>
-        <li className={currentTab === "contact" ? "mx-2 navActive" : "mx-2"}>
-          <span onClick={() => setCurrentTab("contact")}>Contact</span>
-        </li>
-      </ul>
-    </nav>
+    <header className="flex-row px-1">
+      <h1>
+        <Link to="/">
+          <span role="img" aria-label="shopping bag">
+            🛍️
+          </span>
+          -Shop-Shop
+        </Link>
+      </h1>
+
+      <nav>{showNavigation()}</nav>
+    </header>
   );
 }
 
