@@ -15,3 +15,29 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const GET_ONE_EVENT = gql`
+  query getOneEvent($eventId: ID) {
+    getOneEvent(eventId: $eventId) {
+      _id
+      title
+      startDate
+      endDate
+      avgSpend
+      numberVisited
+    }
+  }
+`;
+
+export const GET_ALL_EVENT = gql`
+  query getAllEvent {
+    getAllEvent {
+      _id
+      title
+      startDate
+      endDate
+      avgSpend
+      numberVisited
+    }
+  }
+`;

@@ -29,6 +29,6 @@ clientAccountSchema.methods.isCorrectPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const clientAccount = mongoose.model("ClientAccount", clientAccountSchema);
+const ClientAccount = mongoose.model("ClientAccount", clientAccountSchema);
 
-module.exports = clientAccount;
+module.exports = ClientAccount;
