@@ -24,6 +24,14 @@ const clientAccountSchema = new Schema({
   },
 });
 
+clientAccountSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    const sr = 10;
+    this.password = await bcrypt.hash(this.password, sr);
+  }
+  next();
+});
+
 // compare the incoming password with the hashed password
 clientAccountSchema.methods.isCorrectPassword = async function (password) {
   return await bcrypt.compare(password, this.password);

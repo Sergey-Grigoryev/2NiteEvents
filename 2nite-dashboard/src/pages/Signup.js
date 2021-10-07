@@ -6,7 +6,7 @@
 // const Signup = () => {
 //   const [formState, setFormState] = useState({
 //     username: "",
-//     email: "",
+//     name: "",
 //     password: "",
 //   });
 
@@ -56,11 +56,11 @@
 //               />
 //               <input
 //                 className="form-input"
-//                 placeholder="Your email"
-//                 name="email"
-//                 type="email"
-//                 id="email"
-//                 value={formState.email}
+//                 placeholder="Your name"
+//                 name="name"
+//                 type="name"
+//                 id="name"
+//                 value={formState.name}
 //                 onChange={handleChange}
 //               />
 //               <input
@@ -93,8 +93,8 @@ import Auth from "../utils/auth";
 
 const Signup = (props) => {
   const [formState, setFormState] = useState({
+    name: "",
     username: "",
-    email: "",
     password: "",
   });
 
@@ -115,25 +115,25 @@ const Signup = (props) => {
     try {
       const { data } = await addClientAccount({ variables: { ...formState } });
       console.log("data", data);
-      Auth.login(data.addUser.token);
+      Auth.login(data.addClientAccount.token);
     } catch (e) {
-      console.error(e);
+      console.log(e);
     }
 
-    setFormState({ email: "", username: "", password: "" });
+    setFormState({ name: "", username: "", password: "" });
   };
 
   return (
     <div className="signup-container">
       <h4>Sign Up</h4>
       <form className="signup-form" onSubmit={handleFormSubmit}>
-        <label for="signup-email">Email: </label>
+        <label for="signup-name">Name: </label>
         <input
-          id="signup-email"
+          id="signup-name"
           className="form-input"
-          placeholder="Email"
-          name="email"
-          value={formState.email}
+          placeholder="Name"
+          name="name"
+          value={formState.name}
           onChange={handleChange}
         />
         <label for="signup-username">Username: </label>

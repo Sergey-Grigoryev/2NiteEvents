@@ -77,7 +77,6 @@ const typeDefs = gql`
       password: String
     ): ClientAccount
     deleteEvent(_id: ID!): Event
-
     login(username: String!, password: String!): Auth
   }
 `;

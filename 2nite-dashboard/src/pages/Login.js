@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -23,15 +23,17 @@ const Login = (props) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(formState);
 
     try {
       const { data } = await login({ variables: { ...formState } });
+      console.log("data", data);
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
 
-    setFormState({ email: "", password: "" });
+    setFormState({ username: "", password: "" });
   };
 
   return (
@@ -39,13 +41,13 @@ const Login = (props) => {
       <div className="login-container">
         <h4>Log In</h4>
         <form className="login-form" onSubmit={handleFormSubmit}>
-          <label htmlFor="login-email">Email: </label>
+          <label htmlFor="login-username">Username: </label>
           <input
-            id="login-email"
+            id="login-username"
             className="form-input"
-            placeholder="Email"
-            name="email"
-            value={formState.email}
+            placeholder="Username"
+            name="username"
+            value={formState.username}
             onChange={handleChange}
           />
           <label htmlFor="login-password">Password: </label>
@@ -63,6 +65,7 @@ const Login = (props) => {
           </button>
         </form>
       </div>
+      {/* <Footer /> */}
     </main>
   );
 };

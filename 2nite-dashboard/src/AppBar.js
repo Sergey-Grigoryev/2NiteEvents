@@ -72,7 +72,7 @@ export default function PrimarySearchAppBar() {
       {Auth.loggedIn() ? (
         <div>
           <NavLink to="/profile">
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Dashboard</MenuItem>
           </NavLink>
           <MenuItem
             onClick={function () {
@@ -121,8 +121,8 @@ export default function PrimarySearchAppBar() {
       </div>
       {Auth.loggedIn() ? (
         <div>
-          <NavLink to="/profile">
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+          <NavLink to="/dashboard">
+            <MenuItem onClick={handleMenuClose}>Dashboard</MenuItem>
           </NavLink>
           <MenuItem
             onClick={function () {

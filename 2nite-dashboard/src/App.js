@@ -18,7 +18,6 @@ import {
 } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
-
 // const httpLink = createHttpLink({
 //   uri: "/graphql",
 // });
@@ -62,6 +61,7 @@ const client = new ApolloClient({
 // function NotFound() {
 //   return <h1>404 Page Not Found</h1>;
 // }
+
 function App() {
   return (
     <ApolloProvider client={client}>

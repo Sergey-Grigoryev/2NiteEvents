@@ -30,6 +30,7 @@ const resolvers = {
   },
   Mutation: {
     addClientAccount: async (parent, args) => {
+      console.log("addClientAccount");
       const user = await ClientAccount.create(args);
       const token = await signToken(user);
       console.log("generate token", token);
@@ -61,6 +62,7 @@ const resolvers = {
       return await Event.findByIdAndDelete(args._id);
     },
     login: async (parent, { username, password }) => {
+      console.log("login mutation");
       const user = await ClientAccount.findOne({ username });
 
       if (!user) {

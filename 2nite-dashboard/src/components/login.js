@@ -16,7 +16,7 @@ function Login() {
   const [addEvent, { er }] = useMutation(ADD_EVENT);
   const [updateEvent, { e }] = useMutation(UPDATE_EVENT);
   const [updateClientAccount, { e1 }] = useMutation(UPDATE_CLIENT_ACCOUNT);
-  const [deleteEvent, {eee2}] = useMutation(DELETE_EVENT);
+  const [deleteEvent, { eee2 }] = useMutation(DELETE_EVENT);
 
   // const { loading, data } = useQuery(GET_ONE_EVENT, {
   //   variables: { eventId: "615e9509ea38e0efd3731532" },
@@ -121,6 +121,7 @@ function Login() {
   };
   return (
     <div>
+      <button onClick={handleSignup}>Signup</button>
       <button onClick={handleLogin}>Login</button>
       <button onClick={handleAddEvent}>Add Event</button>
       <button onClick={handleUpdateEvent}>Update Event</button>
