@@ -42,6 +42,8 @@ const typeDefs = gql`
 
   type Query {
     me: ClientAccount
+    getOneEvent(eventId: ID): Event
+    getAllEvent: [Event]
   }
 
   type Mutation {
@@ -60,20 +62,22 @@ const typeDefs = gql`
       numberVisited: Int!
     ): Event
     updateEvent(
-      title: String!
-      startDate: Date!
-      endDate: Date!
-      avgSpend: Int!
-      numberVisited: Int!
+      _id: ID
+      title: String
+      startDate: Date
+      endDate: Date
+      avgSpend: Int
+      numberVisited: Int
     ): Event
     updateClientAccount(
+      _id: ID
       name: String
       businessId: ID
       username: String
       password: String
     ): ClientAccount
-    getOneEvent(eventId: ID): Event
-    getAllEvent: Event
+    deleteEvent(_id: ID!): Event
+
     login(username: String!, password: String!): Auth
   }
 `;
