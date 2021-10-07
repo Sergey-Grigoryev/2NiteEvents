@@ -5,6 +5,7 @@ import {
   ADD_CLIENT_ACCOUNT,
   ADD_EVENT,
   UPDATE_EVENT,
+  DELETE_EVENT,
   UPDATE_CLIENT_ACCOUNT,
   LOGIN,
 } from "../utils/mutations";
@@ -15,6 +16,7 @@ function Login() {
   const [addEvent, { er }] = useMutation(ADD_EVENT);
   const [updateEvent, { e }] = useMutation(UPDATE_EVENT);
   const [updateClientAccount, { e1 }] = useMutation(UPDATE_CLIENT_ACCOUNT);
+  const [deleteEvent, {eee2}] = useMutation(DELETE_EVENT);
 
   // const { loading, data } = useQuery(GET_ONE_EVENT, {
   //   variables: { eventId: "615e9509ea38e0efd3731532" },
@@ -80,6 +82,19 @@ function Login() {
     }
   };
 
+  const handleDeleteEvent = async () => {
+    try {
+      const res = await deleteEvent({
+        variables: {
+          _id: "615e9509ea38e0efd3731532",
+        },
+      });
+      console.log(res.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   const handleSignup = async () => {
     try {
       const res = await addClientAccount({
@@ -110,6 +125,7 @@ function Login() {
       <button onClick={handleAddEvent}>Add Event</button>
       <button onClick={handleUpdateEvent}>Update Event</button>
       <button onClick={handleUpdateClientAccount}>Update Client Account</button>
+      <button onClick={handleDeleteEvent}>Delete Event</button>
     </div>
   );
 }

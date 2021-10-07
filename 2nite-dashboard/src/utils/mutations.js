@@ -70,6 +70,18 @@ export const UPDATE_EVENT = gql`
   }
 `;
 
+export const DELETE_EVENT = gql`
+  mutation deleteEvent(
+    $_id: ID!
+  ) {
+    deleteEvent(
+      _id: $_id
+    ) {
+      _id
+    }
+  }
+`;
+
 export const UPDATE_CLIENT_ACCOUNT = gql`
   mutation updateClientAccount(
     $_id: ID!
