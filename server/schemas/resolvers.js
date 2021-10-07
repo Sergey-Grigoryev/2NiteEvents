@@ -17,6 +17,16 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+    getOneEvent: async (parent, args, context) => {
+      console.log(context);
+      const event = await Event.findById(context.body.variables.eventId);
+      return event;
+    },
+    getAllEvent: async (parent, args, context) => {
+      const event = await Event.find({}).catch((e) => console.error(e));
+      console.log(event);
+      return event;
+    },
   },
   Mutation: {
     addClientAccount: async (parent, args) => {
@@ -25,39 +35,30 @@ const resolvers = {
 
       return { token, user };
     },
-    addEvent: async (parent, { Events }, context) => {
-      console.log(context);
-      if (context.Event) {
-        const event = new Event({ Events });
-
-        await Event.findByIdAndUpdate(context.Event._id, {
-          $push: { Events: Event },
-        });
-
-        return event;
-      }
-
-      throw new AuthenticationError("Not able to Add Event");
+    addEvent: async (parent, args, context) => {
+      // console.log(args);
+      const event = await Event.create(args).catch((e) => console.log(e));
+      // console.log(event);
+      return event;
     },
     updateClientAccount: async (parent, args, context) => {
-      if (context.ClientAccount) {
-        return await ClientAccount.findByIdAndUpdate(
-          context.ClientAccount._id,
-          args,
-          { new: true }
-        );
-      }
+      console.log(args);
+      return await ClientAccount.findByIdAndUpdate(args._id, args, {
+        new: true,
+      });
 
       throw new AuthenticationError("Failed to Update Account");
     },
     updateEvent: async (parent, args, context) => {
-      if (context.Event) {
-        return await Event.findByIdAndUpdate(context.Event._id, args, {
-          new: true,
-        });
-      }
+      console.log(args);
+      return await Event.findByIdAndUpdate(args._id, args, {
+        new: true,
+      });
 
       throw new AuthenticationError("Failed to Update Event");
+    },
+    deleteEvent: async (parent, args, context) => {
+      return await Event.findByIdAndDelete(args._id);
     },
     login: async (parent, { username, password }) => {
       const user = await ClientAccount.findOne({ username });

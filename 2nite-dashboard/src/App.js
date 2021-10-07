@@ -1,61 +1,46 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import "./App.css";
+import Login from "./components/login";
 import {
-  ApolloProvider,
   ApolloClient,
   InMemoryCache,
+  ApolloProvider,
   createHttpLink,
-} from "@apollo/client";
+} from "@apollo/client"; 
 import { setContext } from "@apollo/client/link/context";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+const httpLink = createHttpLink({ uri: "/graphql" });
 
-const httpLink = createHttpLink({
-  uri: "/graphql",
-});
-
-//Get login token from localstorage
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    },
+    headers: { ...headers, authorization: token ? `Bearer ${token}` : "" },
   };
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink), // combine authlink and httplink objects
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              {/* <Route exact path="/profile/:username?" component={Profile} /> */}
-              <Route exact path="/dashboard" component={Dashboard} />
-
-              {/* <Route component={NoMatch} /> */}
-            </Switch>
-          </div>
-          <Footer />
-        </div>
-      </Router>
+      <div className="App">
+        <header className="App-header">
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <Login />
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
     </ApolloProvider>
   );
 }

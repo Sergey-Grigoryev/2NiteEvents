@@ -45,6 +45,7 @@ export const ADD_EVENT = gql`
 
 export const UPDATE_EVENT = gql`
   mutation updateEvent(
+    $_id: ID!
     $title: String!
     $startDate: Date!
     $endDate: Date!
@@ -52,6 +53,7 @@ export const UPDATE_EVENT = gql`
     $numberVisited: Int!
   ) {
     updateEvent(
+      _id: $_id
       title: $title
       startDate: $startDate
       endDate: $endDate
@@ -70,12 +72,14 @@ export const UPDATE_EVENT = gql`
 
 export const UPDATE_CLIENT_ACCOUNT = gql`
   mutation updateClientAccount(
+    $_id: ID!
     $name: String
     $businessId: ID
     $username: String
     $password: String
   ) {
     updateClientAccount(
+      _id: $_id
       name: $name
       businessId: $businessId
       username: $username
@@ -89,32 +93,6 @@ export const UPDATE_CLIENT_ACCOUNT = gql`
         username
         password
       }
-    }
-  }
-`;
-
-export const GET_ONE_EVENT = gql`
-  mutation getOneEvent($eventId: ID) {
-    getOneEvent(eventId: $eventId) {
-      _id
-      title
-      startDate
-      endDate
-      avgSpend
-      numberVisited
-    }
-  }
-`;
-
-export const GET_ALL_EVENT = gql`
-  mutation getAllEvent {
-    getAllEvent {
-      _id
-      title
-      startDate
-      endDate
-      avgSpend
-      numberVisited
     }
   }
 `;
