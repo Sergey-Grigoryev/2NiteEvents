@@ -16,6 +16,7 @@ module.exports = {
     console.log("token", token);
 
     if (!token) {
+      console.log("no token");
       return req;
     }
 
@@ -30,6 +31,7 @@ module.exports = {
     return req;
   },
   signToken: function ({ username, _id }) {
+    console.log("sign token");
     const payload = { username, _id };
 
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });

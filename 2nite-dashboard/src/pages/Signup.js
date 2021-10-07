@@ -111,10 +111,10 @@ const Signup = (props) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log("test", formState);
     try {
       const { data } = await addClientAccount({ variables: { ...formState } });
-
+      console.log("data", data);
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
@@ -155,7 +155,11 @@ const Signup = (props) => {
           value={formState.password}
           onChange={handleChange}
         />
-        <button className="form-button" type="submit">
+        <button
+          className="form-button"
+          type="submit"
+          onClick={handleFormSubmit}
+        >
           Submit
         </button>
       </form>

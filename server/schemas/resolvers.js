@@ -31,8 +31,8 @@ const resolvers = {
   Mutation: {
     addClientAccount: async (parent, args) => {
       const user = await ClientAccount.create(args);
-      const token = signToken(user);
-
+      const token = await signToken(user);
+      console.log("generate token", token);
       return { token, user };
     },
     addEvent: async (parent, args, context) => {
