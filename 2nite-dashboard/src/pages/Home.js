@@ -17,7 +17,7 @@ const Home = () => {
       <div>
         <h2>Welcome to 2Nite Events</h2>
         <div class="center">
-          <img src={Logo} className="App-logo" alt="logo" />
+          <img src={Logo} className="App-logo" alt="logo" class="center" />
         </div>
         <p>
           2Nite Events is the app for your business if you host events and are

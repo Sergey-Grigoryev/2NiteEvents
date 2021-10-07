@@ -8,7 +8,7 @@
   --primary: #497573;
   --secondary: #40aff0;
   --tertiary: #b2c2c1;
-  --quaternary: #1492db;
+  --quaternary: #81aac2;
   --light: #e1f5f4;
   --dark: #282c34;
   --error: rgb(228, 46, 1);
@@ -20,6 +20,13 @@
   --spacing-five: calc(1rem * 3);
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 body {
   margin: 0;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -28,11 +35,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
   color: white;
-}
-
-code {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .login-container {
@@ -46,6 +48,7 @@ code {
   width: 31%;
   opacity: 1;
 }
+
 .signup-container {
   position: relative;
   margin: 0 auto 0 auto;
@@ -57,6 +60,7 @@ code {
   width: 31%;
   opacity: 1;
 }
+
 .login-container h4 {
   color: white;
   font-weight: bold;
@@ -65,6 +69,7 @@ code {
   margin-top: 15px;
   margin-bottom: 20px;
 }
+
 .signup-container h4 {
   color: white;
   font-weight: bold;
@@ -73,6 +78,7 @@ code {
   margin-top: 15px;
   margin-bottom: 20px;
 }
+
 .login-form {
   display: flex;
   margin-top: 100px;
@@ -80,6 +86,7 @@ code {
   margin: 0 auto 0 auto;
   flex-direction: column;
 }
+
 .signup-form {
   display: flex;
   margin-top: 100px;
@@ -87,19 +94,23 @@ code {
   margin: 0 auto 0 auto;
   flex-direction: column;
 }
+
 .form-input {
   font-size: 25px;
   height: 40px;
   margin-bottom: 50px;
 }
+
 .login-form label {
   color: white;
   font-size: 25px;
 }
+
 .signup-form label {
   color: white;
   font-size: 25px;
 }
+
 .form-button {
   font-size: 30px;
   font-weight: bold;
@@ -110,38 +121,206 @@ code {
   border-radius: 18px;
   border-color: white;
 }
+
 .form-button:hover {
   font-size: 33px;
   border-width: 5px;
   margin-top: 45px;
 }
+
 .form-button:active {
   font-size: 30px;
   border-width: 3px;
   margin-top: 50px;
 }
 
-a {
-  text-decoration: none;
-}
-
-.main-message {
-  text-align: center;
-  color: white;
-}
-
-.button {
-  color: rgb(226, 226, 240);
-  font-size: bolder;
-  background-color: rgb(0, 0, 0);
-  font-size: 15px;
-  opacity: 0.75;
-  font-weight: bolder;
-}
-
 .footerBox {
   text-align: center;
+  color: rgb(1, 183, 228);
 }
 
 @media screen and (max-width: 720px) {
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 20px;
+  color: var(--light);
+  background-color: #282c34;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  margin: 5px 0;
+  line-height: 1.25;
+}
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-top: 5;
+  text-align: center;
+}
+/* main {
+  margin: 0 auto;
+  max-width: 90%;
+  padding: 50px 30px;
+} */
+:root {
+  --primary: #497573;
+  --secondary: #1492db;
+  --tertiary: #b2c2c1;
+  --quaternary: #1492db;
+  --light: #e1f5f4;
+  --dark: #282c34;
+  --error: rgb(228, 46, 1);
+  --border-radius: 0.3rem;
+  --spacing-one: calc(1rem * 0.25);
+  --spacing-two: calc(1rem * 0.5);
+  --spacing-three: 1rem;
+  --spacing-four: calc(1rem * 1.5);
+  --spacing-five: calc(1rem * 3);
+}
+/* :root {
+  --primary: #497573;
+  --secondary: #99f7f2;
+  --tertiary: #b2c2c1;
+  --quatrinary: #cadbda;
+  --light: #e1f5f4;
+  --dark: #6c7575;
+  --error: rgb(228, 46, 1);
+  --border-radius: 0.3rem;
+  --spacing-one: calc(1rem * 0.25);
+  --spacing-two: calc(1rem * 0.5);
+  --spacing-three: 1rem;
+  --spacing-four: calc(1rem * 1.5);
+  --spacing-five: calc(1rem * 3);
+} */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 20px;
+  color: var(--light);
+  background-color: #282c34;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  margin: 5px 0;
+  line-height: 1.25;
+}
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-top: 5;
+  text-align: center;
+}
+
+a {
+  color: var(--dark);
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+nav {
+  width: 100%;
+  justify-content: center;
+}
+nav a {
+  padding: 6px 10px;
+  margin: 0 15px;
+  transition: all 0.2s;
+}
+nav a:hover {
+  color: var(--secondary);
+  background-color: var(--dark);
+}
+.page-title {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.center {
+  justify-content: center;
 }

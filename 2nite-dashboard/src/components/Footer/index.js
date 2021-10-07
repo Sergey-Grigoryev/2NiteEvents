@@ -38,7 +38,7 @@ function Footer() {
             target="_blank"
             href="https://github.com/Sergey-Grigoryev/2NiteEvents"
           >
-            <GrLinkedin className="svgLink" color="#00a6fb" size={40} />
+            <GrLinkedin className="svgLink" color="#00a6fb" size={35} />
           </a>
           <a
             className="px-2"
