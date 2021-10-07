@@ -98,7 +98,7 @@ body {
 .form-input {
   font-size: 25px;
   height: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .login-form label {
@@ -115,7 +115,7 @@ body {
   font-size: 30px;
   font-weight: bold;
   color: rgb(2, 2, 2);
-  margin-top: 50px;
+  margin-top: 10px;
   background-color: rgb(255, 255, 255);
   border-style: solid;
   border-radius: 18px;
@@ -125,7 +125,7 @@ body {
 .form-button:hover {
   font-size: 33px;
   border-width: 5px;
-  margin-top: 45px;
+  margin-top: 10px;
 }
 
 .form-button:active {
@@ -163,8 +163,7 @@ body {
 
 h1,
 h2,
-h3,
-h4,
+h3 h4,
 h5,
 h6 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
