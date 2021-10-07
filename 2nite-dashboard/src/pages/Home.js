@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
-import Image from "../assets/images/event.png";
+import Logo from "../assets/images/logo.png";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -17,12 +17,7 @@ const Home = () => {
       <div>
         <h2>Welcome to 2Nite Events</h2>
         <div class="center">
-          <img
-            src={Image}
-            class="photo"
-            style={{ width: "500px", height: "300px" }}
-            alt="event-concert"
-          ></img>
+          <img src={Logo} className="App-logo" alt="logo" />
         </div>
         <p>
           2Nite Events is the app for your business if you host events and are
