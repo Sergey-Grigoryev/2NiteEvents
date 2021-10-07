@@ -4,10 +4,13 @@ import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+  });
+
   const [login, { error }] = useMutation(LOGIN);
 
-  // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -17,55 +20,47 @@ const Login = (props) => {
     });
   };
 
-  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    event.preventDefault();
-
     try {
-      const { data } = await login({
-        variables: { ...formState },
-      });
-
+      const { data } = await login({ variables: { ...formState } });
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
+
+    setFormState({ email: "", password: "" });
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Log In</h4>
-          <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                id="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="******"
-                name="password"
-                type="password"
-                id="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className="btn d-block w-100" type="submit">
-                Submit
-              </button>
-            </form>
-            {error && <div>Log in failed</div>}
-          </div>
-        </div>
+    <main>
+      <div className="login-container">
+        <h4>Log In</h4>
+        <form className="login-form" onSubmit={handleFormSubmit}>
+          <label htmlFor="login-email">Email: </label>
+          <input
+            id="login-email"
+            className="form-input"
+            placeholder="Email"
+            name="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
+          <label htmlFor="login-password">Password: </label>
+          <input
+            id="login-password"
+            className="form-input"
+            placeholder="*******"
+            name="password"
+            type="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <button className="form-button" type="submit">
+            Submit
+          </button>
+        </form>
       </div>
     </main>
   );

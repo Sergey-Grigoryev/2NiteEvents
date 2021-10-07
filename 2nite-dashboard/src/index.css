@@ -126,6 +126,10 @@ nav a:hover {
   background-color: var(--dark);
 }
 
+.footerBox {
+  text-align: center;
+}
+
 .page-title {
   text-align: center;
   width: 100%;
