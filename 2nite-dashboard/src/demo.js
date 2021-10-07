@@ -30,6 +30,15 @@ import { owners } from "./demo-data/tasks";
 
 const appointments = [
   {
+    id: 9,
+    title: "Karaoke - DJ Melie Mel",
+    startDate: new Date(2021, 10, 5, 21, 0),
+    endDate: new Date(2021, 10, 5, 23, 0),
+    aveSpend: "$30",
+    visitCount: 12,
+    businessId: 0,
+  },
+  {
     id: 0,
     title: "Watercolor Landscape123",
     startDate: new Date(2018, 6, 23, 9, 30),
@@ -314,7 +323,7 @@ const FlexibleSpace = withStyles(styles, { name: "ToolbarRoot" })(
       <div className={classes.flexContainer}>
         <ColorLens fontSize="large" htmlColor="#FF7043" />
         <Typography variant="h5" style={{ marginLeft: "10px" }}>
-          Art School
+          2Nite Events Dashbaord
         </Typography>
       </div>
     </Toolbar.FlexibleSpace>

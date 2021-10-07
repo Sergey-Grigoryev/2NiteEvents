@@ -2,15 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import Demo from "./demo";
+// import Demo from "./demo";
 import reportWebVitals from "./reportWebVitals";
+import { ScheduleComponent } from "@syncfusion/ej2-react-schedule";
 
 // let loggedIn = true;
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Demo />
+    <ScheduleComponent />
+    {/* <Demo /> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
