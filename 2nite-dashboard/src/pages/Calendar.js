@@ -4,12 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 
 let eventsDB = [
-  {
-    title: "event 1",
-    start: "2021-10-07T03:00:00.000Z",
-    end: "2021-10-07T03:00:00.000Z",
-  },
-  { title: "event 2", date: "2021-10-06" },
+  // DB Query
 ];
 
 export default class Calendar extends React.Component {
