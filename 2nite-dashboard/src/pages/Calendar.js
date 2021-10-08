@@ -19,13 +19,16 @@ const Calendar = () => {
 
   return (
     <>
-      {/* {" "} */}
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+      <Modal class="position-absolute modal" show={show} onHide={handleClose}>
+        <Modal.Header>
           <Modal.Title>Add new Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Event Title: </Form.Label>
+              <Form.Control type="string" placeholder="Enter start time" />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Event Start Time: </Form.Label>
               <Form.Control type="string" placeholder="Enter start time" />

@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.modal {
+  position: absolute;
+  top: 20vh;
+  left: calc(50% - 175px);
+  z-index: 2;
+  background-color: #61dafb;
+  padding: 1%;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+}
