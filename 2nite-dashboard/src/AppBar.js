@@ -18,9 +18,8 @@ import { Link, NavLink } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import { styled, alpha } from "@mui/material/styles";
-// import User from "./components/User";
 import Auth from "./utils/auth";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
