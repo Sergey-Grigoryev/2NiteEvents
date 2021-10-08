@@ -7,7 +7,7 @@
 2Nite Events is an application for businesses to provide information about events they are hosting. Businesses have the ability to add event information
 to a calendar which can then be viewed by potential event attendees.
 
-View the [deployed application](gentle-peak-37686.herokuapp.com)!
+View the [deployed application](https:gentle-peak-37686.herokuapp.com)!
 
 ## Table of Contents
 
