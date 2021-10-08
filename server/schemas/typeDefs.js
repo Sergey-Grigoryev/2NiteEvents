@@ -6,8 +6,8 @@ const typeDefs = gql`
   type Event {
     _id: ID
     title: String
-    startDate: Date
-    endDate: Date
+    start: Date
+    end: Date
     avgSpend: Float
     numberVisited: Int
   }
@@ -56,16 +56,16 @@ const typeDefs = gql`
     ): Auth
     addEvent(
       title: String!
-      startDate: Date!
-      endDate: Date!
+      start: Date!
+      end: Date!
       avgSpend: Int!
       numberVisited: Int!
     ): Event
     updateEvent(
       _id: ID
       title: String
-      startDate: Date
-      endDate: Date
+      start: Date
+      end: Date
       avgSpend: Int
       numberVisited: Int
     ): Event

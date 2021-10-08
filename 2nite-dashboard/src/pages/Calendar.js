@@ -2,20 +2,26 @@ import React, { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
-
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { render } from "react-dom";
 import Form from "react-bootstrap/Form";
-
-let eventsDB = [
-  // DB Query
-];
+import { useQuery } from "@apollo/client";
+import { QUERY_ME, GET_ONE_EVENT, GET_ALL_EVENT } from "../utils/queries";
 
 const Calendar = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  let eventsDB;
+
+  const { loading, data, refetch } = useQuery(GET_ALL_EVENT);
+  if (loading) {
+    refetch();
+  } else if (!loading) {
+    console.log(data);
+    eventsDB = data.getAllEvent;
+  }
 
   return (
     <>

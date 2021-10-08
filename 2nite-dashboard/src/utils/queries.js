@@ -21,8 +21,8 @@ export const GET_ONE_EVENT = gql`
     getOneEvent(eventId: $eventId) {
       _id
       title
-      startDate
-      endDate
+      start
+      end
       avgSpend
       numberVisited
     }
@@ -34,8 +34,8 @@ export const GET_ALL_EVENT = gql`
     getAllEvent {
       _id
       title
-      startDate
-      endDate
+      start
+      end
       avgSpend
       numberVisited
     }
