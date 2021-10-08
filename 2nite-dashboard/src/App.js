@@ -1,88 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import AppBar from "./AppBar";
-
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Home from "./pages/Home";
-// import Dashboard from "./pages/Dashboard";
-
-// Apollo queries
-import {
-  ApolloProvider,
-  ApolloClient,
-  InMemoryCache,
-  createHttpLink,
-} from "@apollo/client";
-
-import { setContext } from "@apollo/client/link/context";
-// const httpLink = createHttpLink({
-//   uri: "/graphql",
-// });
-
-// //Get login token from localstorage
-// const authLink = setContext((_, { headers }) => {
-//   const token = localStorage.getItem("id_token");
-//   return {
-//     headers: {
-//       ...headers,
-//       authorization: token ? `Bearer ${token}` : "",
-//     },
-//   };
-// });
-
-// const client = new ApolloClient({
-//   link: authLink.concat(httpLink), // combine authlink and httplink objects
-//   cache: new InMemoryCache(),
-// });
-
-const httpLink = createHttpLink({
-  uri: "/graphql",
-});
-
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("id_token");
-
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    },
-  };
-});
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
-
-// function NotFound() {
-//   return <h1>404 Page Not Found</h1>;
-// }
-
-function App() {
-  return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          {/* <Header /> */}
-          <AppBar />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              {/* <Route exact path="/dashboard" component={Dashboard} /> */}
-            </Switch>
-          </div>
-          <Footer />
-        </div>
-      </Router>
-    </ApolloProvider>
-=======
 import logo from "./logo.png";
 import Calendar from "./pages/Calendar";
 import "./App.css";
@@ -95,7 +10,6 @@ function App() {
     <div className="App">
       <Calendar />
     </div>
->>>>>>> e0ba37d98804b8eccb80aaee3cebf969a9c0b33d
   );
 }
 
