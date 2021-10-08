@@ -71,7 +71,7 @@ export default function PrimarySearchAppBar() {
     >
       {Auth.loggedIn() ? (
         <div>
-          <NavLink to="/profile">
+          <NavLink to="/dashboard">
             <MenuItem onClick={handleMenuClose}>Dashboard</MenuItem>
           </NavLink>
           <MenuItem
