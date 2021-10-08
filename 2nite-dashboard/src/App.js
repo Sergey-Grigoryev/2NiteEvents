@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AppBar from "./AppBar";
@@ -81,6 +82,20 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+=======
+import logo from "./logo.png";
+import Calendar from "./pages/Calendar";
+import "./App.css";
+import React from "react";
+import FullCalendar from "@fullcalendar/react"; // must go before plugins
+import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
+
+function App() {
+  return (
+    <div className="App">
+      <Calendar />
+    </div>
+>>>>>>> e0ba37d98804b8eccb80aaee3cebf969a9c0b33d
   );
 }
 

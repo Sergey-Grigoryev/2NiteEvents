@@ -2,8 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+<<<<<<< HEAD
 
 // import Demo from "./demo";
+=======
+>>>>>>> e0ba37d98804b8eccb80aaee3cebf969a9c0b33d
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
